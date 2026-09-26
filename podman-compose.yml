@@ -1,0 +1,17 @@
+services:
+  resilient-proxy:
+    build: .
+    container_name: resilient-proxy
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - EXTERNAL_WEBHOOK_URL=https://tu-servidor-externo.example.com/webhook
+      - RETRY_INTERVAL=300     # Segundos de espera entre cada reintento
+      - MAX_RETRIES=10         # Máximo de intentos fallidos antes de descartar el evento
+      - MAX_RECORDS=1000       # Cantidad máxima de registros históricos retenidos en la BD
+    volumes:
+      - data:/data:Z   # <-- El ":Z" es fundamental en Podman para evitar bloqueos de SELinux
+
+volumes:
+  data:
