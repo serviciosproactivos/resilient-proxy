@@ -1,4 +1,4 @@
-<p align="center><img width="300" height="251" alt="Logo-Resilient-Proxy" src="https://github.com/user-attachments/assets/af637f31-d9aa-499a-a197-054f9e9061ce" /></p>
+<p align="center"><img width="300" height="251" alt="Logo-Resilient-Proxy" src="https://github.com/user-attachments/assets/af637f31-d9aa-499a-a197-054f9e9061ce"></p>
 
 # Resilient Proxy
 
