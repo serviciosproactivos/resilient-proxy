@@ -40,8 +40,8 @@ podman-compose up -d --build
 | Variable | Descripción | Valor por defecto |
 | :--- | :--- | :--- |
 | `EXTERNAL_WEBHOOK_URL` | La URL de destino final a donde deben llegar las alertas. | `https://tu-servidor-externo.example.com/webhook` |
-| `RETRY_INTERVAL` | Tiempo en segundos entre cada intento de reenvío. | `30` |
-| `MAX_RETRIES` | Cantidad máxima de fallos permitidos antes de eliminar el registro de la cola. | `5` |
+| `RETRY_INTERVAL` | Tiempo en segundos entre cada intento de reenvío. | `300` |
+| `MAX_RETRIES` | Cantidad máxima de fallos permitidos antes de eliminar el registro de la cola. | `10` |
 | `MAX_RECORDS` | Límite máximo de filas almacenadas en SQLite (purga los más antiguos excedentes). | `1000` |
 | `RATE_LIMIT_INTERVAL`| Intervalo mínimo entre requests al servidor externo. | `1` |
 | `REQUEST_TIMEOUT` | Timeout HTTP para el servidor externo. | `10` |
