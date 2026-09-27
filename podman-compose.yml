@@ -7,9 +7,13 @@ services:
       - "5000:5000"
     environment:
       - EXTERNAL_WEBHOOK_URL=https://tu-servidor-externo.example.com/webhook
-      - RETRY_INTERVAL=300     # Segundos de espera entre cada reintento
-      - MAX_RETRIES=10         # Máximo de intentos fallidos antes de descartar el evento
-      - MAX_RECORDS=1000       # Cantidad máxima de registros históricos retenidos en la BD
+      - RETRY_INTERVAL=300            # Segundos de espera entre cada reintento
+      - MAX_RETRIES=10                # Máximo de intentos fallidos antes de descartar el evento
+      - MAX_RECORDS=1000              # Cantidad máxima de registros históricos retenidos en la BD
+      - RATE_LIMIT_INTERVAL=1         # Intervalo mínimo entre requests al servidor externo
+      - REQUEST_TIMEOUT=10            # Timeout HTTP para el servidor externo
+      - MAX_PAYLOAD_SIZE=1048576      # Tamaño máximo del payload recibido: 1 MB por defecto
+      - SENT_RETENTION_SECONDS=86400  # Cuánto tiempo conservar los webhooks enviados
     volumes:
       - data:/data:Z   # <-- El ":Z" es fundamental en Podman para evitar bloqueos de SELinux
 
