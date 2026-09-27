@@ -56,5 +56,10 @@ podman-compose up -d --build
 2. Seleccioná la opción **Configuración** > **Notificaciones** > **Agregar notificación**.
 3. Seleccioná el tipo **Webhook**.
 4. En la URL del Webhook, apuntá a tu contenedor local: 
-   `http://resilient-proxy:5000/webhook` (o usá la IP interna de tu red de contenedores).
-5. Guardá la configuración y realizá una prueba.
+   `http://resilient-proxy:5000/webhook` (si está Uptime Kuma en el mismo Pod)
+   `http://host.containers.internal:5000/webhook` (si está en otro contenedor y querés acceder al puerto del host).
+6. OPCIONAL: Si querés enviar un mensaje a través de un bot de Telegram, tendrás que:
+   a) Establecer `EXTERNAL_WEBHOOK_URL` en `https://api.telegram.org/bot123456789:token_correspondiente_al_bot/sendMessage`
+   b) Establecer `Cuerpo de solicitud` en `Cuerpo Personalizado`
+   c) En el cuerpo personalizado irá lo siguiente: `chat_id=123456&text={{ msg }}` (o los campos que decidas colocar como parte del mensaje)
+8. Guardá la configuración y realizá una prueba.
